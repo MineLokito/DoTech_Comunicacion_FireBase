@@ -3,6 +3,8 @@ import {createAppContainer, createSwitchNavigator} from 'react-navigation'
 import {createStackNavigator, HeaderBackground} from 'react-navigation-stack'
 import {createBottomTabNavigator} from 'react-navigation-tabs'
 import {Ionicons} from '@expo/vector-icons'
+import { YellowBox } from 'react-native';
+
 import LoadingScreen from './Screens/LoadingScreen'
 import HomeScreen from './Screens/HomeScreen'
 import LoginScreen from './Screens/LoginScreen'
@@ -11,6 +13,7 @@ import MessageScreen from "./Screens/MessageScreen"
 import NotificationScreen from "./Screens/NotificationScreen"
 import PostScreen from "./Screens/PostSreen"
 import ProfileScreen from "./Screens/ProfileScreen"
+
 
 import * as firebase from 'firebase'
 
@@ -28,6 +31,10 @@ var firebaseConfig = {
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
+
+YellowBox.ignoreWarnings([
+  'Animated: `useNativeDriver` was not specified.',
+]);
 
  const AppTabNavigator = createBottomTabNavigator(
    {
